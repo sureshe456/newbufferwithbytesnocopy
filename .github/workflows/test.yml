@@ -17,8 +17,4 @@ jobs:
         fetch-depth: 2
     - name: Run Example
       run: | 
-        clang -framework CoreGraphics -framework Foundation -framework Metal example1.m -o example1 && ./example1
-    # - name: Setup upterm session
-    #   uses: mxschmitt/action-tmate@v3
-    #   with:
-    #     limit-access-to-actor: true
+        clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy && ./newbufnocopy
