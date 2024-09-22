@@ -17,5 +17,6 @@ jobs:
         fetch-depth: 2
     - name: Run Example
       run: | 
+        uname -a
         clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
         ./newbufnocopy
