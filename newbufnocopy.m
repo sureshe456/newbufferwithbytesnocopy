@@ -33,10 +33,14 @@ int main(int argc, char** argv)
                                     deallocator:nil
                                     ];
     printf("Device buffer created\n");
-    int length2 = [device_buffer length];
-    printf("Length: %d\n", length2);
+    int device_buffer_length = [device_buffer length];
+    printf("Length: %d\n", device_buffer_length);
     int *data = [device_buffer contents];
     printf("Data pointer obtained\n");
+    if (device_buffer_length == 0) {
+        printf("Device buffer length is 0\n");
+        return 0;
+    }
     for (int i = 0; i < 4; i++) {
         printf("Device buffer[%d] = %d\n", i, data[i]);
     }
