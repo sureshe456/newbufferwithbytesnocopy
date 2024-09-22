@@ -23,7 +23,7 @@ Device buffer[2] = 30
 Device buffer[3] = 40
 ```
 
-Github runner failure:
+Github runner failure (both mac os 14 and 12)
 ```
 Run clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
 Malloc data[0] = 10
