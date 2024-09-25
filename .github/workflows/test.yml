@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ 'macos-12', 'macos-14', 'macos-14-large' ]
+        os: [ 'macos-12', 'macos-14']
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout Code
@@ -23,3 +23,7 @@ jobs:
         xcode-select -p
     - name: Verify clang installation
       run: clang --version
+    - name: compile code using clang
+      run: | 
+        clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
+        ./newbufnocopy
