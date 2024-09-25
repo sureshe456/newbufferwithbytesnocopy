@@ -21,6 +21,5 @@ jobs:
         uname -a
         pkgutil --pkg-info com.apple.pkg.CLTools_Executables
         xcode-select -p
-        clang —-version
-        #clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
-        #./newbufnocopy
+    - name: Verify clang installation
+      run: clang -version
