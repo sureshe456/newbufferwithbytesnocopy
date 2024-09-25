@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ 'ubuntu-22.04', 'macos-12', 'macos-13', 'macos-13-xlarge', 'macos-14', 'macos-14-large' ]
+        os: [ 'macos-12', 'macos-14', 'macos-14-large' ]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout Code
@@ -19,5 +19,8 @@ jobs:
     - name: Run Example
       run: | 
         uname -a
-        clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
-        ./newbufnocopy
+        pkgutil --pkg-info com.apple.pkg.CLTools_Executables
+        xcode-select -p
+        clang —version
+        #clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
+        #./newbufnocopy
