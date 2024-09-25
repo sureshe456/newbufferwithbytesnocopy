@@ -25,5 +25,5 @@ jobs:
       run: clang --version
     - name: compile code using clang
       run: | 
-        clang 15.0.0 -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
+        clang-1500.3.9.4 -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
         ./newbufnocopy
