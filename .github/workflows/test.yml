@@ -22,4 +22,4 @@ jobs:
         pkgutil --pkg-info com.apple.pkg.CLTools_Executables
         xcode-select -p
     - name: Verify clang installation
-      run: clang -version
+      run: clang --version
