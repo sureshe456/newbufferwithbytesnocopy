@@ -17,13 +17,13 @@ jobs:
       with:
         fetch-depth: 2
     #- name: Install Clang 14.0.3
-    - name: Install Clang 17.0.0
+    - name: Install Clang 18.0.0
       run: |
-        #brew install llvm@17
-        brew reinstall llvm@17
-        echo 'export PATH="/usr/local/opt/llvm@17/bin:$PATH"' >> $GITHUB_ENV
-        echo 'export LDFLAGS="-L/usr/local/opt/llvm@17/lib"' >> $GITHUB_ENV
-        echo 'export CPPFLAGS="-I/usr/local/opt/llvm@17/include"' >> $GITHUB_ENV
+        #brew install llvm@18
+        brew reinstall llvm@18
+        echo 'export PATH="/usr/local/opt/llvm@18/bin:$PATH"' >> $GITHUB_ENV
+        echo 'export LDFLAGS="-L/usr/local/opt/llvm@18/lib"' >> $GITHUB_ENV
+        echo 'export CPPFLAGS="-I/usr/local/opt/llvm@18/include"' >> $GITHUB_ENV
     - name: Run Example
       run: | 
         uname -a
