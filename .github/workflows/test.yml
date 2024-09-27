@@ -18,7 +18,8 @@ jobs:
         fetch-depth: 2
     - name: Install Clang 14.0.3
       run: |
-        brew install llvm@14
+        #brew install llvm@14
+        brew reinstall llvm@14
         echo 'export PATH="/usr/local/opt/llvm@14/bin:$PATH"' >> $GITHUB_ENV
         echo 'export LDFLAGS="-L/usr/local/opt/llvm@14/lib"' >> $GITHUB_ENV
         echo 'export CPPFLAGS="-I/usr/local/opt/llvm@14/include"' >> $GITHUB_ENV
