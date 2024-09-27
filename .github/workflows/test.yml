@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ 'macos-12', 'macos-14']
+        os: [ macos-14 ]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout Code
@@ -17,7 +17,7 @@ jobs:
       with:
         fetch-depth: 2
     #- name: Install Clang 14.0.3
-    - name: Install Clang 18.0.0
+    - name: Install Clang 15.0.0
       run: |
         brew install llvm@15
         brew --prefix llvm@15/bin/clang
