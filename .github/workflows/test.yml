@@ -20,7 +20,7 @@ jobs:
     - name: Install Clang 15.0.0
       run: |
         brew reinstall llvm@15
-        $(brew --prefix llvm@15)/bin/clang
+        #$(brew --prefix llvm@15)/bin/clang
         echo 'export PATH="/usr/local/opt/llvm@15/bin:$PATH"' >> $GITHUB_ENV
         echo 'export LDFLAGS="-L/usr/local/opt/llvm@15/lib"' >> $GITHUB_ENV
         echo 'export CPPFLAGS="-I/usr/local/opt/llvm@15/include"' >> $GITHUB_ENV
