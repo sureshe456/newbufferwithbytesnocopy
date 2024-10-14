@@ -7,7 +7,7 @@ on:
       - main
 jobs:
   test-macos-12:
-    name: tests
+    name: tests(macos-12)
     runs-on: macos-12
     timeout-minutes: 20
     steps:
@@ -22,7 +22,7 @@ jobs:
         ./newbufnocopy
 
   test-macos-14:
-    name: tests
+    name: tests(macos-14)
     runs-on: macos-14
     timeout-minutes: 20
     steps:
