@@ -1,37 +1,37 @@
 name: Tests
+
 on:
   workflow_dispatch:
-  #push:
-    #branches:
-      #- main
+  push:
+    branches:
+      - main
 jobs:
-  test:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ macos-14 ]
-    runs-on: ${{ matrix.os }}
+  test-macos-12:
+    name: tests
+    runs-on: macos-12
+    timeout-minutes: 20
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
       with:
         fetch-depth: 2
-    #- name: Install Clang 14.0.3
-    - name: Install Clang 15.0.0
-      run: |
-        brew reinstall llvm@15
-        #$(brew --prefix llvm@15)/bin/clang
-        echo 'export PATH="/usr/local/opt/llvm@15/bin:$PATH"' >> $GITHUB_ENV
-        echo 'export LDFLAGS="-L/usr/local/opt/llvm@15/lib"' >> $GITHUB_ENV
-        echo 'export CPPFLAGS="-I/usr/local/opt/llvm@15/include"' >> $GITHUB_ENV
-    - name: Verify xcode and pkg details
+    - name: Run Example
       run: | 
         uname -a
-        pkgutil --pkg-info com.apple.pkg.CLTools_Executables
-        xcode-select -p
-    - name: Verify clang installation
-      run: clang --version
-    - name: compile code using clang
+        clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
+        ./newbufnocopy
+
+  test-macos-14:
+    name: tests
+    runs-on: macos-14
+    timeout-minutes: 20
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+    - name: Run Example
       run: | 
+        uname -a
         clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
         ./newbufnocopy
