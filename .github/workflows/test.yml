@@ -51,8 +51,8 @@ jobs:
         clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
         ./newbufnocopy
 
-  test-macos-13-arm64:
-    name: tests(macos-13-arm64)
+  macos-13-xlarge:
+    name: tests(macos-13-xlarge)
     runs-on: macos-13-xlarge
     timeout-minutes: 20
     steps:
