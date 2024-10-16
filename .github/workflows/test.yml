@@ -1,45 +1,19 @@
-name: Tests
+name: Tests MTLResource
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  
 jobs:
-  test-macos-12:
-    name: tests(macos-12)
-    runs-on: macos-12
-    timeout-minutes: 20
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 2
-    - name: Run Example
-      run: | 
-        uname -a
-        clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
-        ./newbufnocopy
 
-  test-macos-14:
-    name: tests(macos-14)
-    runs-on: macos-14
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ['macos-12', 'macos-13', 'macos-13-xlarge', 'macos-14', 'macos-14-large', 'macos-15-large', 'macos-15-xlarge']
+        
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 20
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 2
-    - name: Run Example
-      run: | 
-        uname -a
-        clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
-        ./newbufnocopy
-
-  test-macos-13:
-    name: tests(macos-13)
-    runs-on: macos-13
-    timeout-minutes: 20
+    
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
