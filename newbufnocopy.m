@@ -25,7 +25,6 @@ int main(int argc, char** argv)
     id<MTLBuffer> device_buffer = [device newBufferWithBytes:updateAddress
                                                       length:length
                                                      options:0
-                                                     deallocator:nil
     ];
     
     printf("Device buffer created\n");
