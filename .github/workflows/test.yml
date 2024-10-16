@@ -50,18 +50,3 @@ jobs:
         uname -a
         clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
         ./newbufnocopy
-
-  macos-13-xlarge:
-    name: tests(macos-13-xlarge)
-    runs-on: macos-13-xlarge
-    timeout-minutes: 20
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 2
-    - name: Run Example
-      run: | 
-        uname -a
-        clang -framework CoreGraphics -framework Foundation -framework Metal newbufnocopy.m -o newbufnocopy
-        ./newbufnocopy
